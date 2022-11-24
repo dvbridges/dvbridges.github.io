@@ -17,8 +17,10 @@
     margin-left: auto;
     margin-right: auto;
     width: 30%;
+    height: 100%;
 }
 input[type="color" i] {
+    align-self: flex-end;
     width: 150px;
     height: 35px;
     border: none;
