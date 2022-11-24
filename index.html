@@ -36,17 +36,24 @@
     <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
 
     <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
-    <script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script>
+    <!-- <script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script> -->
   </head>
   <body id="box">
       <model-viewer 
         id="model" 
         src="./shared-assets/models/Astronaut.glb" 
         ar
+        ar-modes="webxr scene-viewer"
         auto-rotate 
         camera-controls
+        shadow-intensity=".2"
         alt="A 3D model of an Astronaut">
-
+          <div class="controls" ,="" id="color-controls">
+            <button data-color="#ff0000">Red</button>
+            <button data-color="#00ff00">Green</button>
+            <button data-color="#0000ff">Blue</button>
+          </div>
       </model-viewer>
+      <script src="./index.js"></script>
 </body>
 </html>
