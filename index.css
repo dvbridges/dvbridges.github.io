@@ -1,0 +1,12 @@
+#box {
+    height: 100vh;
+}
+
+#model {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: auto;
+    border: none;
+}
