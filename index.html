@@ -62,6 +62,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let renderer = null;
       let scene = new Scene();
       scene.enableStats(false);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.3);
+      directionalLight.position.set(10, 15, 10);
+      scene.add(directionalLight);
 
       let arObject = new Node();
       arObject.visible = false;
@@ -80,7 +83,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       vec3.set(shadow.scale, 0.15, 0.15, 0.15);
       arObject.addNode(shadow);
 
-      const MAX_FLOWERS = 30;
+      const MAX_FLOWERS = 2;
       let flowers = [];
 
       // Ensure the background is transparent for AR.
