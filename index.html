@@ -1,58 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="index.css">
-    <title>AR Playground</title>
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Hello WebXR!</title>
 
-    <!-- 💁 Include both scripts below to support all browsers! -->
-    <!-- Loads <model-viewer> for modern browsers: -->
-    <script type="module"
-        src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
-    </script>
+  <!-- three.js -->
+  <script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
+</head>
+<body>
 
-    <!-- Loads <model-viewer> for old browsers like IE11: -->
-    <script nomodule
-        src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
-    </script>
+<!-- Starting an immersive WebXR session requires user interaction.
+    We start this one with a simple button. -->
+<button onclick="activateXR()">Start Hello WebXR</button>
+<script>
 
-    <!-- The following libraries and polyfills are recommended to maximize browser support -->
-    <!-- NOTE: you must adjust the paths as appropriate for your project -->
-        
-    <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
 
-    <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
-    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+async function activateXR() {
+  // Add a canvas element and initialize a WebGL context that is compatible with WebXR.
+  const canvas = document.createElement("canvas");
+  document.body.appendChild(canvas);
+  const gl = canvas.getContext("webgl", {xrCompatible: true});
 
-    <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
-    <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
+  const scene = new THREE.Scene();
+  
 
-    <!-- 💁 OPTIONAL: Fullscreen polyfill is required for experimental AR features in Canary -->
-    <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
+  // The cube will have a different color on each side.
+  const materials = [
+  new THREE.MeshBasicMaterial({color: 0xff0000}),
+  new THREE.MeshBasicMaterial({color: 0x0000ff}),
+  new THREE.MeshBasicMaterial({color: 0x00ff00}),
+  new THREE.MeshBasicMaterial({color: 0xff00ff}),
+  new THREE.MeshBasicMaterial({color: 0x00ffff}),
+  new THREE.MeshBasicMaterial({color: 0xffff00})
+  ];
 
-    <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
-    <!-- <script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script> -->
-  </head>
-  <body id="box">
-      <model-viewer 
-        id="model" 
-        src="./resources/DamagedHelmet.glb"
-        environment-image="./resources/moon_1k.hdr" 
-        ar
-        ar-modes="webxr scene-viewer"
-        auto-rotate 
-        camera-controls
-        shadow-intensity=".2"
-        alt="A 3D model of an Astronaut">
-        <div id="color-box">
-          <input type="color" id="color-picker" name="color-picker"
-            value="#e66465">
-          <label for="color-picker"></label>
-        </div>
-      </model-viewer>
-      <script src="./index.js"></script>
+  // Create the cube and add it to the demo scene.
+  const cube = new THREE.Mesh(new THREE.BoxBufferGeometry(0.2, 0.2, 0.2), materials);
+  cube.position.set(1, 1, 1);
+  scene.add(cube);
+}
+</script>
 </body>
 </html>
