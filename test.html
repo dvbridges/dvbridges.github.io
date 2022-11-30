@@ -1,0 +1,96 @@
+<p><b>Does my browser support WebXR?</b><br /></p>
+  <div id="ar-cap-test" style="height: 100%">
+    <img id="canhazimg" style="width: 32px; float: left" />
+    <p id="canhazwebxr" style="margin-left: 48px; height: 200px;"></p>
+  </div>
+  <script>
+    function isMobile(global) {
+      let check = false;
+      (function (a) {
+        if (
+          /(android|bb\d+|meego)|mobile.+firefox|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|treo|up\.(browser|link)|vodafone|wap|windows ce|/i.test(a) ||
+          /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)-/i.test(a.substr(0, 4)
+          )
+        )
+          check = true;
+      })(global.navigator.userAgent || global.navigator.vendor || global.opera);
+      return check;
+    }
+
+    let canhazElement = document.getElementById("canhazwebxr");
+    let canhazImg = document.getElementById("canhazimg");
+    if ("xr" in navigator) {
+      canhazElement.innerText =
+        "Your browser implements the WebXR API and may be able to run Virtual Reality or Augmented Reality experiences if you are using a supported OS and the appropriate hardware.";
+      navigator.xr.isSessionSupported("immersive-vr").then((supported) => {
+        const span = document.createElement("span");
+        span.innerText = supported
+          ? "✔️- VR support detected"
+          : "❌ - VR support not detected";
+        canhazElement.appendChild(document.createElement("br"));
+        canhazElement.appendChild(span);
+      });
+      navigator.xr.isSessionSupported("immersive-ar").then((supported) => {
+        const span = document.createElement("span");
+        span.innerText = supported
+          ? "✔️- AR support detected"
+          : "❌ - AR support not detected";
+        canhazElement.appendChild(document.createElement("br"));
+        canhazElement.appendChild(span);
+      });
+      canhazImg.src =
+        "https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/check-button.png?v=1669766171727";
+    } else if ("getVRDisplays" in navigator) {
+      canhazElement.innerText =
+        "Your browser does not support WebXR, but does support the deprecated WebVR API. You may be able to run Virtual Reality experiences on sites that use the WebXR Polyfill, like this one!";
+      canhazImg.src =
+        "https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/info-button.png";
+    } else if (isMobile(window)) {
+      canhazElement.innerText =
+        "Your browser does not support WebXR, but you appear to be using a mobile device. You may be able to run Virtual Reality experiences on sites that use the WebXR Polyfill, like this one!";
+      canhazImg.src =
+        "https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/info-button.png";
+    } else {
+      canhazElement.innerText = "Sorry, your browser does not support WebXR.";
+      canhazImg.src =
+        "https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/x-button.png";
+    }
+  </script>
+<style>
+
+body {
+    height: 30%;
+}
+
+#ar-cap-test {
+  height: 100%;
+}
+#canhazwebxr {
+  height: 100%;
+}
+</style>
+
+
+  <script>
+  
+   setTimeout(function () {
+   var iframes = document.querySelectorAll("iframe")
+   iframes[0].setAttribute("allow", "fullscreen; xr-spatial-tracking; camera;")
+   var y = iframes[0].parentNode;
+   var x = iframes[0]
+   x.setAttribute("allow", "fullscreen; xr-spatial-tracking; camera;");
+   y.appendChild(x);
+    }, 10000);
+
+   
+   setTimeout(function () {
+   var iframes = document.querySelectorAll("iframe")
+   console.log(iframes)
+   iframes[1].setAttribute("allow", "fullscreen; xr-spatial-tracking; camera;")
+   var y = iframes[1].parentNode;
+   var x = iframes[1]
+   x.setAttribute("allow", "fullscreen; xr-spatial-tracking; camera;");
+   y.appendChild(x);
+    }, 10000);
+
+  </script>
