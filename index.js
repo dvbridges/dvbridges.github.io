@@ -9,6 +9,8 @@
 function openNav() {
   // document.getElementById("mySidenav").style.width = "250px";
   console.log("box open")
+  let menu = document.getElementById("openSidebarMenu");
+  menu.style.width = "250px";
 }
 
 function closeNav() {
