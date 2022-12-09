@@ -1,10 +1,10 @@
-const modelViewerColor = document.querySelector("model-viewer#model");
+// const modelViewerColor = document.querySelector("model-viewer#model");
 
-document.querySelector('#color-picker').addEventListener('change', (event) => {
-  const colorString = event.target.value;
-  const [material] = modelViewerColor.model.materials;
-  material.pbrMetallicRoughness.setBaseColorFactor(colorString);
-});
+// document.querySelector('#color-picker').addEventListener('change', (event) => {
+//   const colorString = event.target.value;
+//   const [material] = modelViewerColor.model.materials;
+//   material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+// });
 
 function openNav() {
   // document.getElementById("mySidenav").style.width = "250px";
@@ -12,5 +12,5 @@ function openNav() {
 }
 
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  // document.getElementById("mySidenav").style.width = "0";
 }
