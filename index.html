@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="index.css">
     <title>AR Playground</title>
 
     <!-- 💁 Include both scripts below to support all browsers! -->
@@ -37,7 +37,6 @@
     <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
     <!-- <script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script> -->
      <!-- LINKED CSS -->
-    <link rel="stylesheet" href="./index.css">
   </head>
   <body id="box">
     <div class="header"></div>
@@ -82,7 +81,7 @@
             />
           </button>
             <div class="header"></div>
-              <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+              <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="openNav()">
               <label for="openSidebarMenu" class="sidebarIconToggle">
                 <div class="spinner diagonal part-1"></div>
                 <div class="spinner horizontal"></div>
@@ -95,7 +94,8 @@
                 <li><a href="https://twitter.com/plavookac" target="_blank">Roughness</a></li>
               </ul>
             </div>
-            <link rel="stylesheet" href="./index.css">
+            <link rel="stylesheet" href="index.css">
+            <script src="index.js"></script>
             </model-viewer>
         </body>
   </html>
