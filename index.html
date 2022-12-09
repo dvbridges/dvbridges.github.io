@@ -77,10 +77,25 @@
               border: none;
               width: 15%;
               position: absolute;
-              top: 16px;
+              bottom: 16px;
               right: 16px;"
             />
           </button>
-        </model-viewer>
-  </body>
+          <body id="box">
+            <div class="header"></div>
+              <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+              <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+              </label>
+            <div id="sidebarMenu">
+              <ul class="sidebarMenuInner">
+                <li><a href="https://vanila.io" target="_blank">Color</a></li>
+                <li><a href="https://instagram.com/plavookac" target="_blank">Metalness</a></li>
+                <li><a href="https://twitter.com/plavookac" target="_blank">Roughness</a></li>
+              </ul>
+            </div>
+                </model-viewer>
+          </body>
   </html>
