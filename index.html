@@ -64,12 +64,23 @@
         camera-controls
         shadow-intensity=".2"
         alt="A 3D model of an Astronaut">
-      </model-viewer>
-      <script src="./index.js"></script>
-      <script>
-        iframe = document.getElementById('id_of_frame');
-        iframe.setAttribute('allow', "xr-spatial-tracking *;");
-        iframe.src = iframe.src;
-      </script>
-</body>
-</html>
+          <button
+            slot="ar-button"
+            style="border: none; background: none; width: 0px; height: 0px"
+          >
+          <img
+            src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+            ios-src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+            alt="Submit"
+            style="
+              border-radius: 4px;
+              border: none;
+              width: 15%;
+              position: absolute;
+              top: 16px;
+              right: 16px;"
+            />
+          </button>
+        </model-viewer>
+  </body>
+  </html>
