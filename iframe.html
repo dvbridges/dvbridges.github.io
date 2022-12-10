@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,24 +39,35 @@
     <!-- <script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script> -->
      <!-- LINKED CSS -->
   </head>
-  <body id="box">
-    <div class="header"></div>
-      <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="openNav()">
-      <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-      </label>
-    <div id="sidebarMenu">
-      <ul class="sidebarMenuInner">
-        <li><a href="https://vanila.io" target="_blank">Color</a></li>
-        <li><a href="https://instagram.com/plavookac" target="_blank">Metalness</a></li>
-        <li><a href="https://twitter.com/plavookac" target="_blank">Roughness</a></li>
-      </ul>
-    </div>
-    <div id="model-box">
-      <iframe id="model-frame" src="iframe.html" allow="camera; xr-spatial-tracking"></iframe>
-    </div>
+    <body>
+        <model-viewer 
+          id="model" 
+          src="resources/DamagedHelmet.glb"
+          environment-image="resources/moon_1k.hdr" 
+          ar
+          ar-modes="webxr scene-viewer"
+          auto-rotate 
+          camera-controls
+          shadow-intensity=".2"
+          alt="A 3D model of an Astronaut">
+            <button
+              slot="ar-button"
+              style="border: none; background: none; width: 0px; height: 0px"
+            >
+            <img
+              src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+              ios-src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+              alt="Submit"
+              style="
+                border-radius: 4px;
+                border: none;
+                width: 15%;
+                position: absolute;
+                bottom: 64px;
+                right: 16px;"
+              />
+            </button>
+        </model-viewer>
     <script src="index.js"></script>
     </body>
   </html>
