@@ -53,34 +53,39 @@
         <li><a href="https://twitter.com/plavookac" target="_blank">Roughness</a></li>
       </ul>
     </div>
-      <model-viewer 
-        id="model" 
-        src="resources/DamagedHelmet.glb"
-        environment-image="resources/moon_1k.hdr" 
-        ar
-        ar-modes="webxr scene-viewer"
-        auto-rotate 
-        camera-controls
-        shadow-intensity=".2"
-        alt="A 3D model of an Astronaut">
-          <button
-            slot="ar-button"
-            style="border: none; background: none; width: 0px; height: 0px"
-          >
-          <img
-            src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
-            ios-src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
-            alt="Submit"
-            style="
-              border-radius: 4px;
-              border: none;
-              width: 15%;
-              position: absolute;
-              bottom: 64px;
-              right: 16px;"
-            />
-          </button>
-      </model-viewer>
+    <div id="model-box">
+      <iframe id="model-frame" allow="camera; xr-spatial-tracking">
+        <model-viewer 
+          id="model" 
+          src="resources/DamagedHelmet.glb"
+          environment-image="resources/moon_1k.hdr" 
+          ar
+          ar-modes="webxr scene-viewer"
+          auto-rotate 
+          camera-controls
+          shadow-intensity=".2"
+          alt="A 3D model of an Astronaut">
+            <button
+              slot="ar-button"
+              style="border: none; background: none; width: 0px; height: 0px"
+            >
+            <img
+              src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+              ios-src="https://cdn.glitch.global/9032c8ed-e1d0-420b-84f2-82a1edfc4f8b/arlogo.png"
+              alt="Submit"
+              style="
+                border-radius: 4px;
+                border: none;
+                width: 15%;
+                position: absolute;
+                bottom: 64px;
+                right: 16px;"
+              />
+            </button>
+        </model-viewer>
+
+      </iframe>
+    </div>
     <script src="index.js"></script>
     </body>
   </html>
